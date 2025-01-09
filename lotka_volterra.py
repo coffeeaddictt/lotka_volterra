@@ -40,3 +40,19 @@ plt.legend()
 plt.show()
 
 
+#Partie 2: Parameter Optimization
+print("\nPart 2: Finding best parameters")
+
+print("Loading data...")
+data = pd.read_csv('/Users/sanae/Downloads/populations_lapins_renards.csv')
+
+
+test_values = [1/3, 2/3, 1, 4/3]
+
+best_error = 999999999
+best_alpha = 0
+best_beta = 0
+best_delta = 0
+best_gama = 0
+best_lapin = None
+best_renard = None
