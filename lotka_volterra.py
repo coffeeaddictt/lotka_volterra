@@ -32,4 +32,11 @@ for i in range(1000):
     lapin.append(new_value_lapin)
     renard.append(new_value_renard)
 
+plt.figure(figsize=(15, 6))
+plt.plot(time, lapin, "b-", label="Rabbits")
+plt.plot(time, renard, "r-", label="Foxes")
+plt.title("Test of Lotka-Volterra Model")
+plt.legend()
+plt.show()
+
 
