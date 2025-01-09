@@ -113,3 +113,13 @@ print(f"beta = {best_beta}")
 print(f"delta = {best_delta}")
 print(f"gama = {best_gama}")
 print(f"Final MSE = {best_error}")
+
+# plot comparison of best model vs real data
+plt.figure(figsize=(15, 6))
+plt.plot(data['lapin'], 'b.', label='Real Rabbits', alpha=0.5)
+plt.plot(data['renard'], 'r.', label='Real Foxes', alpha=0.5)
+plt.plot(best_lapin, 'b-', label='Model Rabbits')
+plt.plot(best_renard, 'r-', label='Model Foxes')
+plt.title('Model vs Real Data')
+plt.legend()
+plt.show()
