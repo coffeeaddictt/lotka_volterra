@@ -83,3 +83,33 @@ for alpha in test_values:
                     time.append(new_value_time)
                     lapin.append(new_value_lapin)
                     renard.append(new_value_renard)
+
+                    # calculating MSE
+                error_lapin = 0
+                error_renard = 0
+                for i in range(len(data)):
+                    error_lapin += (data['lapin'][i] - lapin[i])**2
+                    error_renard += (data['renard'][i] - renard[i])**2
+                total_error = (error_lapin + error_renard) / (2 * len(data))
+               
+                if total_error < best_error:
+                    best_error = total_error
+                    best_alpha = alpha
+                    best_beta = beta
+                    best_delta = delta
+                    best_gama = gama
+                    best_lapin = lapin.copy()
+                    best_renard = renard.copy()
+                    print(f"\nFound better parameters!")
+                    print(f"alpha (rabbit growth) = {alpha}")
+                    print(f"beta (rabbit death from foxes) = {beta}")
+                    print(f"delta (fox growth from eating) = {delta}")
+                    print(f"gama (fox death rate) = {gama}")
+                    print(f"MSE = {total_error}\n")
+
+print("\nBest parameters found:")
+print(f"alpha = {best_alpha}")
+print(f"beta = {best_beta}")
+print(f"delta = {best_delta}")
+print(f"gama = {best_gama}")
+print(f"Final MSE = {best_error}")
